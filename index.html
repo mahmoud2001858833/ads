@@ -3,9 +3,8 @@
 <head>
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8065284792641984"
      crossorigin="anonymous"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8065284792641984"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
+
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إعلانات وتهاني</title>
     <style>
@@ -76,6 +75,21 @@
 </div>
 
 <script>
+     <script>
+    function showAd(adNumber) {
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8065284792641984"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-6t+ed+2i-1n-4w"
+     data-ad-client="ca-pub-8065284792641984"
+     data-ad-slot="5127270416"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</script>
+
     function startAds() {
         const name = document.getElementById('nameInput').value;
         if (name.trim() === "") {
@@ -90,9 +104,10 @@
         const adsContainer = document.getElementById('adsContainer');
         for (let i = 1; i <= 10; i++) {
             const ad = document.createElement('div');
-            ad.className = 'ad';
-            ad.textContent = `الإعلان رقم ${i}`;
-            adsContainer.appendChild(ad);
+ad.className = 'ad';
+ad.innerHTML = `<a href="#" onclick="showAd(${i})">الإعلان رقم ${i}</a>`;
+adsContainer.appendChild(ad);
+
         }
 
         setTimeout(() => {
