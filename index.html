@@ -1,120 +1,144 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8065284792641984"
-     crossorigin="anonymous"></script>
-
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إعلانات وتهاني</title>
+    <title>صفحة الإعلانات والفيديوهات</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
+            direction: rtl;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #333;
+        .ads {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
         }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 20px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
         }
-        button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .video {
+            width: 300px;
+            margin: 10px;
         }
-        button:hover {
-            background-color: #218838;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
         }
-        .ad {
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .hidden {
+        #congratulations {
             display: none;
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+        }
+        #userNameInput {
+            margin: 20px;
+            padding: 10px;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>مرحبًا! أدخل اسمك</h1>
-    <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
-    <button onclick="startAds()">ابدأ</button>
+<header>
+    <h1>مرحباً في صفحة الإعلانات والفيديوهات</h1>
+</header>
 
-    <div id="adsSection" class="hidden">
-        <h2>شاهد الإعلانات التالية:</h2>
-        <div id="adsContainer"></div>
-    </div>
-
-    <div id="congratsSection" class="hidden">
-        <h2>مبروك <span id="userName"></span>!</h2>
-        <p>لقد شاهدت جميع الإعلانات بنجاح. نتمنى لك يومًا سعيدًا!</p>
-    </div>
+<!-- صفحة تسجيل الاسم -->
+<div id="nameForm" style="text-align: center;">
+    <h2>الرجاء إدخال اسمك</h2>
+    <input type="text" id="userNameInput" placeholder="اسمك هنا" />
+    <button onclick="startPage()">ابدأ</button>
 </div>
 
+<!-- إعلانات -->
+<div class="ads" id="ads" style="display: none;">
+    <h2>إعلانات مميزة هنا</h2>
+    <p>إعلان 1 | إعلان 2 | إعلان 3</p>
+</div>
+
+<!-- محتوى الفيديوهات -->
+<div class="content" id="videoContent" style="display: none;">
+    <div class="video">
+        <video id="video1" controls>
+            <source src="video1.mp4" type="video/mp4">
+            متصفحك لا يدعم الفيديو.
+        </video>
+    </div>
+    <!-- كرر الفيديوهات هنا -->
+</div>
+
+<!-- رسالة التهنئة -->
+<div id="congratulations">
+    <h2>تهانينا!</h2>
+    <p>مرحباً <span id="userNameDisplay"></span>, لقد أكملت مشاهدة جميع الفيديوهات.</p>
+    <p>التاريخ: <span id="dateDisplay"></span></p>
+    <button onclick="resetPage()">العودة للبداية</button>
+</div>
+
+<footer>
+    <p>© 2025 جميع الحقوق محفوظة</p>
+</footer>
+
 <script>
-     <script>
-    function showAd(adNumber) {
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8065284792641984"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-6t+ed+2i-1n-4w"
-     data-ad-client="ca-pub-8065284792641984"
-     data-ad-slot="5127270416"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</script>
-
-    function startAds() {
-        const name = document.getElementById('nameInput').value;
-        if (name.trim() === "") {
-            alert("الرجاء إدخال اسمك");
-            return;
+    function startPage() {
+        let userName = document.getElementById("userNameInput").value;
+        if (userName) {
+            localStorage.setItem("userName", userName);
+            document.getElementById("nameForm").style.display = "none";
+            document.getElementById("ads").style.display = "block";
+            setTimeout(showVideos, 3000); // عرض الفيديوهات بعد 3 ثواني من الإعلانات
+        } else {
+            alert("يرجى إدخال اسمك");
         }
+    }
 
-        document.getElementById('nameInput').style.display = 'none';
-        document.querySelector('button').style.display = 'none';
-        document.getElementById('adsSection').classList.remove('hidden');
+    function showVideos() {
+        document.getElementById("ads").style.display = "none";
+        document.getElementById("videoContent").style.display = "flex";
+        let videos = document.querySelectorAll("video");
+        videos.forEach(video => {
+            video.onended = checkCompletion;
+        });
+    }
 
-        const adsContainer = document.getElementById('adsContainer');
-        for (let i = 1; i <= 10; i++) {
-            const ad = document.createElement('div');
-ad.className = 'ad';
-ad.innerHTML = `<a href="#" onclick="showAd(${i})">الإعلان رقم ${i}</a>`;
-adsContainer.appendChild(ad);
-
+    let videosWatched = 0;
+    function checkCompletion() {
+        videosWatched++;
+        let totalVideos = document.querySelectorAll("video").length;
+        if (videosWatched === totalVideos) {
+            showCongratulation();
         }
+    }
 
-        setTimeout(() => {
-            document.getElementById('adsSection').classList.add('hidden');
-            document.getElementById('congratsSection').classList.remove('hidden');
-            document.getElementById('userName').textContent = name;
-        }, 10000); // 10 ثواني لعرض الإعلانات
+    function showCongratulation() {
+        let userName = localStorage.getItem("userName");
+        let currentDate = new Date().toLocaleDateString();
+        document.getElementById("userNameDisplay").textContent = userName;
+        document.getElementById("dateDisplay").textContent = currentDate;
+        document.getElementById("videoContent").style.display = "none";
+        document.getElementById("congratulations").style.display = "block";
+    }
+
+    function resetPage() {
+        localStorage.removeItem("userName");
+        location.reload();
     }
 </script>
 
