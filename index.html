@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8065284792641984"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعلانات وتهاني</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .ad {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>مرحبًا! أدخل اسمك</h1>
+    <input type="text" id="nameInput" placeholder="اكتب اسمك هنا">
+    <button onclick="startAds()">ابدأ</button>
+
+    <div id="adsSection" class="hidden">
+        <h2>شاهد الإعلانات التالية:</h2>
+        <div id="adsContainer"></div>
+    </div>
+
+    <div id="congratsSection" class="hidden">
+        <h2>مبروك <span id="userName"></span>!</h2>
+        <p>لقد شاهدت جميع الإعلانات بنجاح. نتمنى لك يومًا سعيدًا!</p>
+    </div>
+</div>
+
+<script>
+    function startAds() {
+        const name = document.getElementById('nameInput').value;
+        if (name.trim() === "") {
+            alert("الرجاء إدخال اسمك");
+            return;
+        }
+
+        document.getElementById('nameInput').style.display = 'none';
+        document.querySelector('button').style.display = 'none';
+        document.getElementById('adsSection').classList.remove('hidden');
+
+        const adsContainer = document.getElementById('adsContainer');
+        for (let i = 1; i <= 10; i++) {
+            const ad = document.createElement('div');
+            ad.className = 'ad';
+            ad.textContent = `الإعلان رقم ${i}`;
+            adsContainer.appendChild(ad);
+        }
+
+        setTimeout(() => {
+            document.getElementById('adsSection').classList.add('hidden');
+            document.getElementById('congratsSection').classList.remove('hidden');
+            document.getElementById('userName').textContent = name;
+        }, 10000); // 10 ثواني لعرض الإعلانات
+    }
+</script>
+
+</body>
+</html>
