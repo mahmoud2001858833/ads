@@ -6,51 +6,101 @@
     <title>صفحة الإعلانات والفيديوهات</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             direction: rtl;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #333;
+            background-color: #343a40;
             color: white;
             text-align: center;
             padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #nameForm {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #userNameInput {
+            padding: 10px;
+            font-size: 18px;
+            width: 300px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+        #startBtn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #startBtn:hover {
+            background-color: #218838;
         }
         .ads {
-            background-color: #f4f4f4;
-            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            margin: 20px;
             text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .ads img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
         .content {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-evenly;
+            margin-top: 30px;
             padding: 20px;
+            display: none;
         }
         .video {
             width: 300px;
-            margin: 10px;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .video video {
+            width: 100%;
+            border-radius: 10px;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background-color: #343a40;
             color: white;
         }
         #congratulations {
             display: none;
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #4CAF50;
+            background-color: #28a745;
             color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
             border-radius: 10px;
         }
-        #userNameInput {
-            margin: 20px;
-            padding: 10px;
-            font-size: 18px;
+        #congratulations button {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #congratulations button:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
@@ -61,27 +111,132 @@
 </header>
 
 <!-- صفحة تسجيل الاسم -->
-<div id="nameForm" style="text-align: center;">
+<div id="nameForm">
     <h2>الرجاء إدخال اسمك</h2>
     <input type="text" id="userNameInput" placeholder="اسمك هنا" />
-    <button onclick="startPage()">ابدأ</button>
+    <button id="startBtn" onclick="startPage()">ابدأ</button>
 </div>
 
 <!-- إعلانات -->
-<div class="ads" id="ads" style="display: none;">
-    <h2>إعلانات مميزة هنا</h2>
-    <p>إعلان 1 | إعلان 2 | إعلان 3</p>
+<div class="ads" id="ads">
+    <h2>إعلانات مميزة!</h2>
+    <img src="https://via.placeholder.com/600x300/007bff/ffffff?text=إعلان+1" alt="إعلان 1">
+    <img src="https://via.placeholder.com/600x300/28a745/ffffff?text=إعلان+2" alt="إعلان 2">
+    <img src="https://via.placeholder.com/600x300/f39c12/ffffff?text=إعلان+3" alt="إعلان 3">
 </div>
 
 <!-- محتوى الفيديوهات -->
-<div class="content" id="videoContent" style="display: none;">
+<div class="content" id="videoContent">
+    <!-- إضافة 10 إعلانات فيديو -->
     <div class="video">
-        <video id="video1" controls>
-            <source src="video1.mp4" type="video/mp4">
-            متصفحك لا يدعم الفيديو.
-        </video>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX"  <!-- ضع معرّف حسابك الخاص هنا -->
+             data-ad-slot="XXXXXXX"   <!-- ضع رقم الإعلان هنا -->
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
-    <!-- كرر الفيديوهات هنا -->
+
+    <!-- كرر الكود لـ 9 إعلانات فيديو أخرى -->
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="video">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block; width: 300px; height: 250px;"
+             data-ad-client="ca-pub-XXXXXXX" 
+             data-ad-slot="XXXXXXX" 
+             data-ad-format="video"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
 </div>
 
 <!-- رسالة التهنئة -->
@@ -103,7 +258,7 @@
             localStorage.setItem("userName", userName);
             document.getElementById("nameForm").style.display = "none";
             document.getElementById("ads").style.display = "block";
-            setTimeout(showVideos, 3000); // عرض الفيديوهات بعد 3 ثواني من الإعلانات
+            setTimeout(showVideos, 5000); // عرض الفيديوهات بعد 5 ثواني من الإعلانات
         } else {
             alert("يرجى إدخال اسمك");
         }
